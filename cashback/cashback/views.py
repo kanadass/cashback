@@ -3,15 +3,27 @@ from django.shortcuts import render
 from django.template.loader import render_to_string
 
 
+menu = ['About site', ' Add article', 'Feedback', 'Sign in']
+
+data_db = [
+    {'id': 1, 'title': 'qqqq', 'content': 'wwww', 'is_published': True},
+    {'id': 2, 'title': 'eeee', 'content': 'rrrr', 'is_published': False},
+    {'id': 333, 'title': 'ttt', 'content': 'yyy', 'is_published': True},
+]
+
 def index(request):
-    # template = render_to_string('cashback/index.html')
-    # return HttpResponse(template)
     template = 'cashback/index.html'
-    return render(request, template)
+    data = {
+        'title': "Site's home page",
+        'menu': menu,
+        'posts': data_db,
+    }
+    return render(request, template, context=data)
 
 def about(request):
     template = 'cashback/about.html'
-    return render(request, template)
+    data = {'title': "About site"}
+    return render(request, template, context=data)
 
 
 def categories(request, cat_id):
