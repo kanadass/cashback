@@ -26,7 +26,10 @@ def index(request):
 
 def about(request):
     template = 'cashback/about.html'
-    data = {'title': "About site"}
+    data = {
+        'title': "About site",
+        'menu': menu,
+    }
     return render(request, template, context=data)
 
 
