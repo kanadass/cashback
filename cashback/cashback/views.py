@@ -1,9 +1,17 @@
 from django.http import HttpResponse, HttpResponseNotFound
 from django.shortcuts import render
+from django.template.loader import render_to_string
 
 
 def index(request):
-    return HttpResponse('Cashback page')
+    # template = render_to_string('cashback/index.html')
+    # return HttpResponse(template)
+    template = 'cashback/index.html'
+    return render(request, template)
+
+def about(request):
+    template = 'cashback/about.html'
+    return render(request, template)
 
 
 def categories(request, cat_id):
