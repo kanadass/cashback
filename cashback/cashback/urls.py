@@ -1,10 +1,12 @@
 from django.urls import path
 
-from cashback.views import index, categories, categories_by_slug, about
+from cashback.views import index, about, show_post, addpage, contact, login
 
 urlpatterns = [
     path('', index, name='home'),
     path('about/', about, name='about'),
-    path('cats/<int:cat_id>/', categories, name='cats_id'),
-    path('cats/<slug:cat_slug>/', categories_by_slug, name='cats'),
+    path('addpage/', addpage, name='add_page'),
+    path('contact/', contact, name='contact'),
+    path('login/', login, name='login'),
+    path('post/<int:post_id>/', show_post, name='post'),
 ]
